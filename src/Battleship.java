@@ -271,9 +271,11 @@ public class Battleship {
         }
 
         if (compScore == 5){
+            System.out.println("Your Score: " + playerScore + " | Computer's Score: " + compScore);
             System.out.println("You lose!");
         }
         else if (playerScore == 5){
+            System.out.println("Your Score: " + playerScore + " | Computer's Score: " + compScore);
             System.out.println("Hooray! You win!");
         }
     }
