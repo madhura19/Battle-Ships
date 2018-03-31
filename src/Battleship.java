@@ -50,8 +50,17 @@ public class Battleship {
             int x = sc.nextInt();
             System.out.print("Enter Y coordinate for your ship: ");
             int y = sc.nextInt();
+            boolean res = isValid(ocean, x, y);
 
-            if (x < 0 || x > 10 || y < 0 || y > 10){
+            if(res == true){
+                ocean[x][y] = "1";
+                i++;
+            }
+            else {
+                continue;
+            }
+
+            /*if (x < 0 || x > 10 || y < 0 || y > 10){
                 System.out.println("Please choose legal coordinates.");
                 continue;
             }
@@ -64,9 +73,29 @@ public class Battleship {
             else {
                 ocean[x][y] = "1";
                 i++;
-            }
+            }*/
         }
         printMap(ocean);
+    }
+
+    public static void deployComputerShips(String[][] ocean){
+
+    }
+
+    public static boolean isValid(String[][] ocean, int x, int y){
+        if (x < 0 || x > 10 || y < 0 || y > 10){
+            System.out.println("Please choose legal coordinates.");
+            return false;
+        }
+
+        else if (ocean[x][y] != null){
+            System.out.println("Please choose another coordinate.");
+            return false;
+        }
+
+        else {
+            return true;
+        }
     }
 
     public static void battle(){}
