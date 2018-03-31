@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Battleship {
@@ -8,7 +9,7 @@ public class Battleship {
         //Create ocean map
         intro(ocean);
         delpoyPlayerShip(ocean);
-
+        deployComputerShips(ocean);
 
     }
 
@@ -79,7 +80,25 @@ public class Battleship {
     }
 
     public static void deployComputerShips(String[][] ocean){
+        //Deploy computer ships
+        Random rand = new Random();
+        System.out.println("Computer is deploying ships.");
+        int i = 0;
+        while(i < 5){
+            int x = rand.nextInt(10);
+            int y = rand.nextInt(10);
+            boolean res = isValid(ocean, x, y);
 
+            if (res == true){
+                ocean[x][y] = "2";
+                System.out.println("Ship " + (i+1) + " deployed");
+                i++;
+            }
+            else {
+                continue;
+            }
+
+        }
     }
 
     public static boolean isValid(String[][] ocean, int x, int y){
